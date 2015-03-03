@@ -2,7 +2,7 @@ EcoSim
 ======
 A c# economy simulator
 
-Unlike [bazaarBot](https://github.com/staff0rd/bazaarBot), EcoSim simulates an economy that does is not agent-based.
+Unlike [bazaarBot](https://github.com/staff0rd/bazaarBot), EcoSim simulates an economy that is not agent-based.
 
 ![EcoSim](/screenshot.png?raw=true)
 
