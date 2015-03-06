@@ -16,6 +16,7 @@ namespace EcoSim.Core
 
         public int Rounds = 0;
         public Random RNG;
+        public float MinimumPrice = 9;
 
         public Simulation(int seed, HashSet<Commodity> commodities)
         {
@@ -59,8 +60,8 @@ namespace EcoSim.Core
             //ByRatio(commodity, variance);
             ByIncrement(commodity, variance);
 
-            if (commodity.Price < 9)
-                commodity.Price = 9;
+            if (commodity.Price < MinimumPrice)
+                commodity.Price = MinimumPrice;
 
             PriceHistory[commodity].Add(commodity.Price);
         }
