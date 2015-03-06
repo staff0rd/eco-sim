@@ -59,8 +59,8 @@ namespace EcoSim.Core
             //ByRatio(commodity, variance);
             ByIncrement(commodity, variance);
 
-            if (commodity.Price < 1)
-                commodity.Price = 1;
+            if (commodity.Price < 9)
+                commodity.Price = 9;
 
             PriceHistory[commodity].Add(commodity.Price);
         }
