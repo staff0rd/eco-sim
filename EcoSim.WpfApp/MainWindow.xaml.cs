@@ -23,25 +23,5 @@ namespace EcoSim.WpfApp
         {
             InitializeComponent();
         }
-
-        private void DataGrid_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            var dataGrid = sender as DataGrid;
-            string[][] array = dataGrid.DataContext as string[][];
-            if (!dataGrid.Columns.Any())
-            {
-                if (array != null)
-                {
-                    for (int i = 0; i < array[0].Length; i++)
-                    {
-                        var column = new DataGridTextColumn();
-                        column.Binding = new Binding(string.Format("[{0}]", i));
-                        dataGrid.Columns.Add(column);
-                    }
-                }
-
-            }
-            dataGrid.ItemsSource = array;
-        }
     }
 }
