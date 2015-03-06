@@ -17,10 +17,12 @@ namespace EcoSim.Core
         public int Rounds = 0;
         public Random RNG;
         public float MinimumPrice = 9;
+        public int Seed { get; private set; }
 
         public Simulation(int seed, HashSet<Commodity> commodities)
         {
-            RNG = new Random(seed);
+            Seed = seed;
+            RNG = new Random(Seed);
             Commodities = commodities;
             Init();
         }
