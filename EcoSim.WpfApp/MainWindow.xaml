@@ -5,7 +5,7 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         Title="EcoSim" Height="350" Width="1300">
     <Window.DataContext>
-        <local:ViewModel />
+        <local:MainViewModel />
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
