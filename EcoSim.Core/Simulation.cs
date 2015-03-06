@@ -49,6 +49,11 @@ namespace EcoSim.Core
                 Simulate(commodity);
         }
 
+        public void Simulate(int rounds)
+        {
+            for (int i = 0; i < rounds; i++)
+                Simulate();
+        }
 
         private void Simulate(Commodity commodity)
         {
