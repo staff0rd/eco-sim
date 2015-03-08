@@ -44,13 +44,14 @@ namespace EcoSim.Core
         {
             var supply = (float)RNG.Next(0, (int)commodity.Supply);
             var demand = (float)RNG.Next(0, (int)commodity.Demand);
-            var variance = supply - demand;
+            commodity.Production = supply - demand;
+            
             SupplyHistory[commodity].Add(supply);
             DemandHistory[commodity].Add(demand);
-            VarianceHistory[commodity].Add(variance);
+            VarianceHistory[commodity].Add(commodity.Production);
 
             //ByRatio(commodity, variance);
-            VaryByIncrement(commodity, variance);
+            VaryByIncrement(commodity);
 
             if (commodity.Price < MinimumPrice)
                 commodity.Price = MinimumPrice;
@@ -73,12 +74,12 @@ namespace EcoSim.Core
             }
         }
 
-        private static void VaryByIncrement(Commodity commodity, float variance)
+        private static void VaryByIncrement(Commodity commodity)
         {
-            if (variance > 0)
+            if (commodity.Production > 0)
                 commodity.Price--;
 
-            if (variance < 0)
+            if (commodity.Production < 0)
                 commodity.Price++;
         }
 

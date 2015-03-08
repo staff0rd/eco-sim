@@ -14,5 +14,7 @@ namespace EcoSim.Core
         public float Supply = 100;
 
         public float Demand = 100;
+
+        public float Production;
     }
 }
