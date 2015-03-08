@@ -27,21 +27,6 @@ namespace EcoSim.Core
             Init();
         }
 
-        private void Init()
-        {
-            PriceHistory = new Dictionary<Commodity,List<float>>();
-            SupplyHistory = new Dictionary<Commodity, List<float>>();
-            DemandHistory = new Dictionary<Commodity, List<float>>();
-            VarianceHistory = new Dictionary<Commodity, List<float>>();
-            foreach (var commodity in Commodities)
-            {
-                PriceHistory.Add(commodity, new List<float> { commodity.Price });
-                SupplyHistory.Add(commodity, new List<float> { 0 });
-                DemandHistory.Add(commodity, new List<float> { 0 });
-                VarianceHistory.Add(commodity, new List<float> { 0 });
-            }
-        }
-
         public void Simulate()
         {
             Rounds++;
@@ -73,7 +58,22 @@ namespace EcoSim.Core
             PriceHistory[commodity].Add(commodity.Price);
         }
 
-        private void VaryByIncrement(Commodity commodity, float variance)
+        private void Init()
+        {
+            PriceHistory = new Dictionary<Commodity, List<float>>();
+            SupplyHistory = new Dictionary<Commodity, List<float>>();
+            DemandHistory = new Dictionary<Commodity, List<float>>();
+            VarianceHistory = new Dictionary<Commodity, List<float>>();
+            foreach (var commodity in Commodities)
+            {
+                PriceHistory.Add(commodity, new List<float> { commodity.Price });
+                SupplyHistory.Add(commodity, new List<float> { 0 });
+                DemandHistory.Add(commodity, new List<float> { 0 });
+                VarianceHistory.Add(commodity, new List<float> { 0 });
+            }
+        }
+
+        private static void VaryByIncrement(Commodity commodity, float variance)
         {
             if (variance > 0)
                 commodity.Price--;
