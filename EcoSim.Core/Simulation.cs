@@ -90,5 +90,11 @@ namespace EcoSim.Core
             if (variance < 0)
                 commodity.Price -= commodity.Price * (Math.Abs(variance) / commodity.Demand);
         }
+
+        public float GetPrice(string commodityName)
+        {
+            var commodity = Commodities.SingleOrDefault(p => p.Name == commodityName);
+            return commodity != null ? commodity.Price : 0;
+        }
     }
 }
