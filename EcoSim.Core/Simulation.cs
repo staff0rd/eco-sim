@@ -65,7 +65,7 @@ namespace EcoSim.Core
             VarianceHistory[commodity].Add(variance);
 
             //ByRatio(commodity, variance);
-            ByIncrement(commodity, variance);
+            VaryByIncrement(commodity, variance);
 
             if (commodity.Price < MinimumPrice)
                 commodity.Price = MinimumPrice;
@@ -73,7 +73,7 @@ namespace EcoSim.Core
             PriceHistory[commodity].Add(commodity.Price);
         }
 
-        private void ByIncrement(Commodity commodity, float variance)
+        private void VaryByIncrement(Commodity commodity, float variance)
         {
             if (variance > 0)
                 commodity.Price--;
@@ -82,7 +82,7 @@ namespace EcoSim.Core
                 commodity.Price++;
         }
 
-        private static void ByRatio(Commodity commodity, float variance)
+        private static void VaryByRatio(Commodity commodity, float variance)
         {
             if (variance > 0)
                 commodity.Price += commodity.Price * (variance / commodity.Supply);
