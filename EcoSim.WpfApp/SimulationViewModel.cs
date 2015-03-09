@@ -35,11 +35,11 @@ namespace EcoSim.WpfApp
         {
             _simulation = new Simulation(Seed, new HashSet<Commodity>
             {
-                new Commodity { Name = "food", Price = 5 },
-                new Commodity { Name = "wood", Price = 5 },
-                new Commodity { Name = "metal", Price = 15 },
-                new Commodity { Name = "ore", Price = 10 },
-                new Commodity { Name = "tools", Price = 20 }
+                new Commodity { Name = "food", Price = 10 },
+                new Commodity { Name = "wood", Price = 10 },
+                new Commodity { Name = "metal", Price = 30 },
+                new Commodity { Name = "ore", Price = 20 },
+                new Commodity { Name = "tools", Price = 40 }
             });
 
             Plot();
