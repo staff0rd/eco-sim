@@ -24,7 +24,7 @@ namespace EcoSim.WpfApp
         public MainViewModel()
         {
             Simulations = new ObservableCollection<SimulationViewModel>();
-            BenchmarkRounds = 50000;
+            BenchmarkRounds = 100;
             InitCommands();
             Restart();
             OnPropertyChanged("BenchmarkRounds");
