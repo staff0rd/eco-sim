@@ -16,13 +16,16 @@ namespace EcoSim.Core
 
         public int Rounds = 0;
         public Random RNG;
-        public float MinimumPrice = 9;
+        public float MinimumPrice = 1;
         public int Seed { get; private set; }
         public float Bounds { get; private set; }
+        public float Speed { get; private set;}
 
-        public Simulation(int seed, HashSet<Commodity> commodities, float bounds = 0.5f)
+        public Simulation(int seed, HashSet<Commodity> commodities, float bounds = 0.5f, float speed = .02f)
         {
             Seed = seed;
+            Speed = speed;
+            Bounds = bounds;
             RNG = new Random(Seed);
             Commodities = commodities;
             Init(bounds);
@@ -77,10 +80,11 @@ namespace EcoSim.Core
             }
         }
 
-        private static void VaryByIncrement(Commodity commodity)
+        private void VaryByIncrement(Commodity commodity)
         {
+            var variance = commodity.Production / Math.Abs(commodity.Production) * commodity.BasePrice * Bounds * 2 * Speed;
             if (commodity.Production != 0)
-                commodity.Price -= (int)(commodity.Production / Math.Abs(commodity.Production));
+                commodity.Price -= variance;
 
             Clamp(commodity);
         }
